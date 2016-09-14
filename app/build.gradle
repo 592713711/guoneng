@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'wifidemokey'
+            keyPassword 'qinwifidemo'
+            storeFile file('./wifidemo.keystore')
+            storePassword 'qinwifidemo'
+        }
+        release {
+            keyAlias 'wifidemokey'
+            keyPassword 'qinwifidemo'
+            storeFile file('./wifidemo.keystore')
+            storePassword 'qinwifidemo'
+        }
+    }
+
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
+    defaultConfig {
+        applicationId "com.watch.guoneng"
+        minSdkVersion 12
+        targetSdkVersion 19
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            buildConfigField("boolean", "debug", "true")    //不显示log
+            buildConfigField("boolean", "debug_port", "false")  //发布端口
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+
+        debug {
+            signingConfig signingConfigs.release
+            buildConfigField("boolean", "debug", "true")      //显示log
+            buildConfigField("boolean", "debug_port", "false")  //调试端口
+        }
+    }
+    productFlavors {
+    }
+}
+
+android.buildTypes.all {
+    buildConfigField "String", "PASSWORD_SALT", "\"ggggukggg\""
+    buildConfigField "String", "PASSWORD_ENC_SECRET", "\"sggggxxyyyzzzzgggeee213,2355\""
+    buildConfigField "String", "PASSWORD_PREFERENCE_KEY", "\"passwordkey\""
+/*
+    buildConfigField "String", "USE_LONG_CONNECTION", "\"1\""
+*/
+}
+
+android {
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.android.support:appcompat-v7:21.+'
+    compile files('libs/alipay.jar')
+    compile files('libs/httpcore-4.3.3.jar')
+    compile files('libs/httpmime-4.3.6.jar')
+    //compile files('libs/jpush-sdk-release1.7.1.jar')
+    compile files('libs/universal-image-loader-1.5.6-with-src.jar')
+    compile files('libs/locSDK_6.13.jar')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile project(':menudrawer')
+    compile project(':lib-zxing')
+}

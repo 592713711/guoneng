@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/system_image_search"
+        android:background="@color/headbg"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/system_image_search"
+            android:background="@drawable/back_selector"
+            android:focusable="true"
+            android:visibility="invisible"
+            android:clickable="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/device_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/main_tabtext_setting"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            style="@style/text_head" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_userinfo"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/shape"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        android:layout_marginLeft="10dp"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_user_setting"
+            android:textSize="18sp"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="right">
+            <ImageView
+                android:id="@+id/userinfo_right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:src="@drawable/right_arrow" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/shape"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/str_version"
+            android:textSize="18sp"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/textVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_versionName"
+                android:layout_gravity="center_vertical|right"
+                android:layout_alignParentLeft="false"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:textSize="18sp"
+                android:layout_toLeftOf="@+id/bt_checkupdate" />
+
+            <Button
+                android:id="@+id/bt_checkupdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_check_update"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
